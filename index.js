@@ -13,7 +13,7 @@ const authRoute = require("./routes/authentication")
 
 //DB CONNECTION
 const connect = () => {
-    mongoose.connect(process.env.MONGO_URL).then(() => {
+    mongoose.connect(process.env.MONGO_URL_TEST).then(() => {
         console.log("DB connected");
     }).catch((err) => {
         throw err
