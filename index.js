@@ -3,9 +3,11 @@ require("dotenv").config()
 const mongoose = require("mongoose")
 const app = express()
 const cookieParser = require("cookie-parser")
+const cors = require("cors")
 
 app.use(express.json())
 app.use(cookieParser())
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 const authRoute = require("./routes/authentication")
 
@@ -24,5 +26,5 @@ app.use("/api", authRoute)
 const PORT = 5000
 app.listen(PORT, () => {
     connect();
-    console.log("Server is running");
+    console.log("Server is running on PORT", PORT);
 })
